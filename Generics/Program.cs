@@ -12,7 +12,7 @@ public class Generic<T> {
 */
 
 /*
- * HERENCIA
+ * HERENCIA - POLIMORFISMO
  */
 Vehiculo vehiculo = new Vehiculo();
 vehiculo.Arrancar();
@@ -20,7 +20,9 @@ vehiculo.Arrancar();
 
 Coche coche = new Coche();
 coche.Arrancar();
+coche.Arrancar("lEO");
 coche.DetenerCoche();
+
 
 
 class Vehiculo { 
@@ -45,4 +47,7 @@ class Coche : Vehiculo {
     Console.WriteLine("Esté coche ha arrancado con éxito!!");
     }
 
+    public void Arrancar(string str) {
+        Console.WriteLine($"{str} ha arrancado a las {DateTime.Now}.");
+    }
 }
