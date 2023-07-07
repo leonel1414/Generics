@@ -11,9 +11,12 @@ public class Generic<T> {
 
 */
 
+
+
+
 /*
  * HERENCIA - POLIMORFISMO
- */
+ 
 Vehiculo vehiculo = new Vehiculo();
 vehiculo.Arrancar();
 
@@ -43,11 +46,36 @@ class Coche : Vehiculo {
         Console.WriteLine("Se ha detenido el vehiculo");
     }
 
+    //SOBRECARGA SIN PARAMETRO
     public void Arrancar() { 
     Console.WriteLine("Esté coche ha arrancado con éxito!!");
     }
 
+    //SOBRECARGA CON PARAMETROS
     public void Arrancar(string str) {
         Console.WriteLine($"{str} ha arrancado a las {DateTime.Now}.");
+    }
+}
+*/
+
+
+//Interfaces
+//son clases que definen atributos, metodos , etc sin implementar.
+
+Vehiculo vehiculo = new Vehiculo();
+vehiculo.Marca = "FORD";
+
+Console.WriteLine($"Marca: {vehiculo.Marca}");
+interface IVehiculo
+{
+    public string Marca { get; set; }
+    public void Arrancar();
+}
+
+class Vehiculo : IVehiculo {
+
+    public string Marca { get; set; }
+    void IVehiculo.Arrancar() {
+        Console.WriteLine("Arrancar");
     }
 }
